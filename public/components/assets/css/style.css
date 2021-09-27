@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+button {
+  font-family: "Inter", sans-serif;
+}
+:root {
+  --offcanvas-width: 220px;
+  --topNavbarHeight: 56px;
+}
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+.sidebar-link .right-icon {
+  display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+.card-icon{
+  background-image: linear-gradient(140deg, rgba(13, 110, 253, 0.8)52%,rgba(226, 78, 169, 0.356));
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.52);
+  height: auto;
+  width: auto;
+
+}
+.card-icon i{
+  font-size: 40px;
+  font-weight: bolder;
+}
+.card-icon-head p{
+  font-size: 16px;
+  font-weight: 300;
+}
+.card-icon-count{
+  font-weight: 600;
+  font-size: 20px;
+
+}
+.name-text .badge{
+    background-color: #8e44ad !important;
+    font-weight: 500 !important;
+}
+.active{
+  border-left: 4px solid #fff;
+  background-color: rgba(0,0,0,0.32) !important;
+  color: #fff !important;
+}
+.search-input:focus{
+    box-shadow: none !important;
+}
+.navbar-dark .navbar-toggler-icon{
+  background-image: none !important;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link{
+  transition: all 0.2s linear;
+}
+.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover{
+  background-color: rgba(0,0,0,0.32);
+  color: #fff !important;
+}
+
+.profile-header{
+  background-image: linear-gradient(135deg,rgba(87, 95, 207,0.5),rgba(11, 232, 129,0.6));
+  height: 150px;
+}
+.profile-body{
+  position:relative;
+
+}
+.profile-picture{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  position: absolute;
+  left: 32%;
+  top: -30%;
+  /* background-color: blue; */
+}
+.profile-picture img{
+  border-radius: 50%;
+}
+.profile-text{
+  margin-top: 75px;
+}
+.social-media-icon{
+  font-size: 22px;
+}
+.social-media-icon a{
+  transition: all 0.2s linear;
+}
+.social-media-icon a:hover{
+  transform: scale(1.2);
+}
+.social-media-icon a:nth-child(1){
+  color: #1877F2;
+}
+.social-media-icon a:nth-child(2){
+  color: #0A66C2;
+}
+.social-media-icon a:nth-child(3){
+  color: #CD201F;
+}
+.social-media-icon a:nth-child(4){
+  color: #131418;
+}
+.card-footer .btn{
+  transition: .3s;
+}
+/* .card-footer .btn:hover{
+  letter-spacing: 2px;
+} */
+.bg-dark{
+    background-color: #5352ed!important;
+}
+.navbar-dark .navbar-nav .nav-link{
+    color: rgba(255,255,255,0.8) !important;
+}
+.muted-text span{
+    color: rgba(255,255,255,0.52);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+}
+.login-form{
+    height: 60vh;
+    width: 40vw;
+
+}
+.login-form .card{
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.22);
+    min-width: 60% !important;
+    border: none;
+}
+.sidebar-nav{
+    background-color: rgba(0,0,0,0.52) !important;
+}
+
+.cover-page{
+    min-height: 40%;
+}
+.main-profile{
+    position: relative;
+}
+.main-profile .avater{
+    height: 150px;
+    width: 150px;
+    border: 2px solid rgba(255, 255, 255, 0.42);
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+    left: 10px;
+    top: -130px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.52);
+}
+.main-profile .avater img{
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:0;
+    left: 0;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.cover-text h2{
+    font-size: 24px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 1px rgba(0,0,0,0.52);
+}
+.cover-text p{
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.custom_up_profile{
+    font-size: 12px !important;
+    border-radius: 20px;
+    text-transform: uppercase;
+    transition: all 0.2s linear !important;
+}
+.custom_up_profile:hover{
+    letter-spacing: 1px;
+    transform: scale(1.02);
+}
+.error_msg{
+    font-size: 12px !important;
+    /* font-weight: 300 !important; */
+}
+.profile-pic{
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+.profile-pic img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* .view-image{
+    height: auto;
+    width: 300px;
+}
+.view_img_row{
+    width: 300px;
+}
+.view-image img{
+    width: 100%;
+    display: block;
+    transition: all 0.5s linear;
+}
+.view-image:hover img{
+    transform: scale(1.3);
+} */
+
+/*-------------------------------------------------------
+| registraion page design start
+---------------------------------------------------------*/
+
+a{
+    text-decoration: none;
+}
+
+/* body{
+    background: #dff9fb;
+} */
+.main-form{
+    height: 100vh;
+
+}
+.switch-btn {
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    /* padding-bottom: 5px; */
+}
+.switch-btn .reg_active{
+    border-bottom: 1px solid #777;
+    padding-bottom: 5px;
+    cursor: pointer;
+    color: slateblue;
+    transform: scale(1.02);
+}
+.switch-btn .link a{
+    padding:0 60px;
+}
+.social-icon{
+    font-size: 30px;
+    transition: all 0.3s linear;
+}
+.social-icon:hover{
+    transform: scale(1.5);
+}
+.bi-facebook{
+    color: #3b5998;
+
+}
+.bi-google{
+    color: #dd4b39;
+
+}
+.bi-twitter{
+    color: #00aced;
+}
+.form-control-lg{
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background-color: rgba(0,0,0,0.1);
+    color: #4c4c4c;
+    width: 100%;
+    padding-left: 40px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.form-control-lg:focus{
+    font-weight: 400;
+}
+.btn-lg{
+    border-radius: 30px;
+}
+/* .restaurent-form{
+    display: none;
+} */
+/* #customer_reg:hover{
+    cursor: pointer;
+} */
+#restaurent_reg:hover,
+#restaurent_reg:focus{
+    cursor: pointer;
+    color: slateblue;
+    transform: scale(1.02);
+}
+#customer_reg:hover,
+#customer_reg:focus{
+    cursor: pointer;
+    color: slateblue;
+    transform: scale(1.02);
+}
+.login-card{
+    border: none !important;
+    outline: 0;
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.66);
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.36);
+}
+.form-check-input:checked{
+    background-color: rgba(11, 232, 129,0.8) !important;
+    border-color: rgba(11, 232, 129,0.8) !important;
+}
+.form-check-input{
+    background-color: #ff3f34;
+    border-color: #ff3f34;
+}
+.form-switch .form-check-input{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23fff'/%3e%3c/svg%3e");
+
+}
+/*----------------------------------------------------------
+| registraion page design end
+------------------------------------------------------------*/
+
+
+/* .profile-information .info-header a{
+  position: relative;
+}
+.profile-information .info-header a{
+  content: "";
+  background-color: blueviolet;
+  width: 0;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transition: all 0.3s linear;
+}
+.profile-information .info-header a:hover{
+  width: 95%;
+  background-color: blueviolet;
+} */
+/* .info-header{
+  padding: 0 !important;
+} */
+.info-header p{
+  border-left: 4px solid blueviolet;
+  padding-left: 5px;
+}
+.form-label{
+  font-size: 13px;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}
+@media (min-with: 360px) and (max-width: 576px){
+    .view_img img{
+        height: 150px;
+    }
+}
