@@ -215,9 +215,11 @@ button {
 /* .view-image{
     height: auto;
     width: 300px;
+    overflow: hidden;
 }
 .view_img_row{
     width: 300px;
+    overflow: hidden;
 }
 .view-image img{
     width: 100%;
@@ -360,6 +362,7 @@ a{
 .form-label{
   font-size: 13px;
 }
+
 
 @media (min-width: 992px) {
   body {

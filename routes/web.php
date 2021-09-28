@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\Frontend\SingleRestaurantController;
 use App\Http\Controllers\Restaurant\CategoryController;
 use App\Http\Controllers\Restaurant\MenuController;
 use App\Http\Controllers\RestaurantController;
@@ -127,12 +128,19 @@ Route::post('/add-restaurent-owner',[RestaurantController::class,'store']);
 // ============ Route for Restaurant Owner ===============
 
 /*-----------------------------------------------------------------
+| Frontend Routes
+-----------------------------------------------------------------------*/
+
+Route::get('restaurant/{slug}', [SingleRestaurantController::class, 'show'])->name('restaurant');
+Route::post('restaurant/food/view', [SingleRestaurantController::class, 'view'])->name('food.view');
+
+/*-----------------------------------------------------------------
 | Common Routes
 -----------------------------------------------------------------------*/
 
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'view'])->name('home');
 
 

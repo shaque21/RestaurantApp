@@ -33,7 +33,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="category" class="table table-bordered table-striped table-hover table-sm">
+                            <table id="category" class="table text-center table-bordered table-striped table-hover table-sm">
                                 <thead class="thead-dark">
                                   <tr>
                                     <th>#</th>
@@ -64,7 +64,7 @@
                                         {{ number_format($data->food_price,2) }}
                                     </td>
                                     <td>
-                                        {{ number_format($data->food_discount,2) }} %
+                                        {{ number_format($data->discount_id,2) }} %
                                     </td>
                                     <td class="d-flex align-items-center justify-content-center">
                                         <div class="form-check form-switch">
@@ -150,34 +150,29 @@
             buttons: [
                 {
                     extend: 'copy',
-                    title: 'Restaurent Table',
-                    messageTop: 'All Restaurent Owner Data Here.',
-                    messageBottom: 'Footer Message',
+                    title: 'Restaurant Menu',
+                    messageTop: 'Category wise all menu.',
                 },
                 {
                     extend: 'csv',
-                    title: 'Restaurent Table',
-                    messageTop: 'All Restaurent Owner Data Here.',
-                    messageBottom: 'Footer Message',
+                    title: 'Restaurant Menu',
+                    messageTop: 'Category wise all menu.',
                 },
                 {
                     extend: 'excel',
-                    title: 'Restaurent Table',
-                    messageTop: 'All Restaurent Owner Data Here.',
-                    messageBottom: 'Footer Message',
+                    title: 'Restaurant Menu',
+                    messageTop: 'Category wise all menu.',
                 },
                 {
                     extend: 'pdf',
-                    title: 'Restaurent Table',
-                    messageTop: 'All Restaurent Owner Data Here.',
-                    messageBottom: 'Footer Message',
+                    title: 'Restaurant Menu',
+                    messageTop: 'Category wise all menu.',
                 },
                 {
                     extend: 'print',
 
-                    title: 'Restaurent Table',
-                    messageTop: 'All Restaurent Owner Data Here.',
-                    messageBottom: 'Footer Message',
+                    title: 'Restaurant Menu',
+                    messageTop: 'Category wise all menu.',
                 },
 
             ],

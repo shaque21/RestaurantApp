@@ -2,7 +2,7 @@
 @section('content')
 <main class="mt-5 pt-3">
     <div class="container-fluid">
-        <div class="row my-5">
+        <div class="row my-1">
             <div class="col-md-6 offset-md-3">
 
                 <form method="POST" action="{{ route('menu.store') }}" id="addMenuForm" enctype="multipart/form-data" >
@@ -142,7 +142,7 @@ $(document).ready(function(){
             },
             food_description: {
                 required: true,
-                maxlength: 255,
+                maxlength: 1000,
             },
             food_price: {
                 required: true,

@@ -61,7 +61,7 @@ class MenuController extends Controller
         if($request->hasFile('food_photo')){
             $image=$request->file('food_photo');
             $imageName='menu-'.time().'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(250,250)->save(base_path('public/uploads/restaurant/menu/'.$imageName));
+            Image::make($image)->resize(450,250)->save(base_path('public/uploads/restaurant/menu/'.$imageName));
 
             Menu::where('id',$insert)->update([
                 'food_photo'=>$imageName,
@@ -147,7 +147,7 @@ class MenuController extends Controller
 
             $image=$request->file('food_photo');
             $imageName='menu-'.time().'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(250,250)->save(base_path('public/uploads/restaurant/menu/'.$imageName));
+            Image::make($image)->resize(450,250)->save(base_path('public/uploads/restaurant/menu/'.$imageName));
 
             $data['food_photo'] = $imageName;
         }

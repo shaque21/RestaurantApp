@@ -147,7 +147,7 @@ $(document).ready(function(){
             },
             food_description: {
                 required: true,
-                maxlength: 255,
+                maxlength: 1000,
             },
             food_price: {
                 required: true,
