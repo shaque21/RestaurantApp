@@ -81,7 +81,7 @@
         <div class="row d-flex flex-wrap">
 
 
-            <h2 class="my-5 category-div
+            <h2 class="my-5 category-title category-div
                         {{ $item->category_name }}
                         ">
 
@@ -175,15 +175,111 @@
         aria-controls="offcanvasScrolling">
         <i class="bi bi-cart-check"></i>
         View Cart
-        <span class="badge bg-danger">4</span>
+        <span class="badge bg-danger notification-number">4</span>
     </button>
     <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
+          <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <p>Try scrolling the rest of the page to see this option in action.</p>
+            <div class="row">
+                <div class="col-sm-12 ">
+                    <h4 class="cart-title p-4"><i class="bi bi-bag"></i>&nbsp; Shopping Cart</h4>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-5 my-1">
+                    <div class="cart-item-photo">
+                        <img src="{{ asset('uploads/restaurant/menu/menu-1632803665.jpg') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-7 cart-qty-btn my-1">
+                    <p class="text-muted">Jumbo Burger</p>
+                    <p class="text-muted">1 X $150</p>
+                    <div class="row">
+                        <div class="col-sm-8 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-plus fw-bold"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-dash"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row m-3">
+                <div class="col-sm-5">
+                    <div class="cart-item-photo">
+                        <img src="{{ asset('uploads/restaurant/menu/menu-1632803665.jpg') }}" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-7 cart-qty-btn my-1">
+                    <p class="text-muted">BBQ Pizza</p>
+                    <p class="text-muted">1 X $850</p>
+                    <div class="row">
+                        <div class="col-sm-8 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-plus fw-bold"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-dash"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- <div class="row m-3">
+                <div class="col-sm-5">
+                    <div class="cart-item-photo">
+                        <img src="images/p2.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-sm-7 cart-qty-btn">
+                    <p class="text-muted">BBQ Pizza</p>
+                    <p class="text-muted">1 X $850</p>
+                    <div class="row">
+                        <div class="col-sm-8 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-plus fw-bold"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-dash"></i>
+                            </a>
+                            <a class="btn btn-sm mx-1">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="row m-3">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Total Amount : $ 1050</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col-sm-12 d-flex justify-content-center align-items-center">
+                    <a href="#" class="checkout-btn">
+                        checkout
+                    </a>
+                </div>
+            </div>
+
         </div>
       </div>
 </div>
