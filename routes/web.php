@@ -25,7 +25,9 @@ Route::get('/', function () {
 
 // ============ Route for admin ===============
 Route::get('/admin-login',function(){
+    if(!Auth::user()){
     return view('Admin.login');
+    }
 });
 Route::group(['middleware' => ['admin','auth'],'namespace' => 'admin'], function(){
 
