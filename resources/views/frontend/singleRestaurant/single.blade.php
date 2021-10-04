@@ -144,7 +144,7 @@
                                 <small class="text-muted">Price : $ <span id="view_price"></span>
                                 </small>
                             </p>
-                            <h5 class="card-title my-3">Description : </h5>
+                            <h6 class="card-title my-3">Description : </h6>
                             <p class="card-text my-1" id="view_description">
 
                             </p>

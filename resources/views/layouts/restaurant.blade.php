@@ -12,7 +12,11 @@
   </head>
   <body>
 
-
+    @php
+        $user_id = Auth::user()->id;
+        $restaurant = App\Models\Restaurant::where('rstown_id', $user_id)->firstOrFail();
+        // dd($restaurant);
+    @endphp
     <!-- top navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
@@ -28,9 +32,9 @@
             </span>
           </button>
           <a
-            class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+            class="navbar-brand restaurant-brand me-auto ms-lg-0 ms-5 text-uppercase fw-bold"
             href="#"
-            >Samsul Haque</a
+            >{{ $restaurant->restaurant_name }}</a
           >
           <button
             class="navbar-toggler"
@@ -59,15 +63,21 @@
                 </button>
               </div>
             </form>
+            <div class="view_restaurant ms-4">
+                <a href="{{ url('restaurant/'.$restaurant->rstown_slug) }}">
+                    <i class="bi bi-building"></i>
+                    Restaurant
+                </a>
+            </div>
 
             <div class="profile-pic ms-4">
                 @if (Auth::user()->photo != '')
-                <a href="{{ url('/admin/profile') }}">
+                <a href="{{ url('/restaurant/profile') }}">
                     <img src="{{ asset('uploads/admin/'.Auth::user()->photo) }}" alt="">
                 </a>
                 {{-- <img  src="{{ asset('uploads/admin/'.$user->photo) }}" alt="Photo" width="150px"> --}}
                 @else
-                <a href="{{ url('/admin/profile') }}">
+                <a href="{{ url('/restaurant/profile') }}">
                     <img src="{{ asset('components/assets/images/avarter.jpg') }}" alt="Photo">
                 </a>
                 @endif
