@@ -6,6 +6,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Frontend\SingleRestaurantController;
 use App\Http\Controllers\Restaurant\CategoryController;
 use App\Http\Controllers\Restaurant\MenuController;
+use App\Http\Controllers\Restaurant\QrController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -121,6 +122,10 @@ Route::group(['middleware' => ['restaurant','auth'],'namespace' => 'restaurant']
     Route::get('/restaurant/dashboard',[RestaurantController::class,'index'])->name('restaurant.dashboard');
 
     Route::get('/restaurant/profile',[RestaurantController::class,'profile']);
+    /*--------------------------------------------------------------------
+    | Menu Management  Routes
+    -----------------------------------------------------------------------*/
+    Route::get('reataurant/qrcode',[QrController::class,'generateQrCode'])->name('restaurant.qrcode');
 
 });
 
