@@ -215,6 +215,12 @@
                   <span>Manage Menu</span>
                 </a>
               </li>
+              <li>
+                <a href="{{ route('orders.all') }}" class="nav-link px-3 {{ (request()->segment(2) == 'orders') ? 'active' : '' }}">
+                  <span class="me-2"><i class="bi bi-bag-check text-bold"></i></span>
+                  <span>Manage Orders</span>
+                </a>
+              </li>
 
 
 

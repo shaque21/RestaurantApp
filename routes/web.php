@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Frontend\SingleRestaurantController;
+use App\Http\Controllers\Restaurant\OrderController;
 use App\Http\Controllers\Restaurant\CategoryController;
 use App\Http\Controllers\Restaurant\MenuController;
 use App\Http\Controllers\RestaurantController;
@@ -114,6 +115,12 @@ Route::group(['middleware' => ['restaurant','auth'],'namespace' => 'restaurant']
     Route::post('restaurant/menu/update',[MenuController::class, 'update'])->name('menu.update');
     Route::post('restaurant/menu/delete',[MenuController::class, 'destroy'])->name('menu.delete');
     Route::get('restaurant/menu/activeStatus',[MenuController::class,'activeStatus'])->name('menu.active');
+
+    /*--------------------------------------------------------------------
+    | Orders Management  Routes
+    -----------------------------------------------------------------------*/
+
+    Route::get('restaurant/orders/all',[OrderController::class, 'index'])->name('orders.all');
 
 
     Route::get('/restaurant/dashboard',[RestaurantController::class,'index'])->name('restaurant.dashboard');
