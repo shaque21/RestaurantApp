@@ -19,7 +19,7 @@ class CreateMenusTable extends Migration
             $table->string('food_description')->nullable();
             $table->string('food_photo')->nullable();
             $table->integer('category_id');
-            $table->integer('food_price');
+            $table->double('food_price');
             $table->integer('discount_id')->default(0)->nullable();
             $table->string('food_slug')->unique();
             $table->integer('user_id');
