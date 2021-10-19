@@ -29,7 +29,7 @@
               <i class="bi bi-justify text-white" data-bs-target="#sidebar"></i>
             </span>
           </button>
-          <a  
+          <a
             class="navbar-brand restaurant-brand me-auto ms-lg-0 ms-5 text-uppercase fw-bold"
             href="#"
             >{{ $restaurant->restaurant_name }}</a
@@ -62,7 +62,7 @@
               </div> -->
             </form>
             <div class="view_restaurant ms-4">
-                
+
             </div>
 
             <div class="profile-pic ms-4">
@@ -77,7 +77,7 @@
                 </a>
                 @endif
             </div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav profile-nav">
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle ms-2 name-text"
@@ -90,9 +90,9 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="{{ url('admin/profile') }}"><i class="bi bi-person fw-bolder text-primary me-2"></i> Profile</a></li>
-                  <li><a class="dropdown-item" href="{{ url('admin/profile/edit') }}"><i class="bi bi-pencil-square fw-bolder text-primary me-2"></i> Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ url('admin/profile/edit') }}"><i class="bi bi-pencil-square fw-bolder text-success me-2"></i> Edit Profile</a></li>
                   <li><a class="dropdown-item" href="{{ url('restaurant/'.$restaurant->rstown_slug) }}">
-                    <i class="bi bi-building"></i>
+                    <i class="bi bi-building fw-bolder text-warning me-2"></i>
                     View Restaurent
                 </a></li>
                   <li class="my-2"><hr class="dropdown-divider bg-dark" /></li>
@@ -215,15 +215,12 @@
                 </a>
               </li>
               <li>
-<<<<<<< HEAD
                 <a href="{{ route('orders.all') }}" class="nav-link px-3 {{ (request()->segment(2) == 'orders') ? 'active' : '' }}">
                   <span class="me-2"><i class="bi bi-bag-check text-bold"></i></span>
                   <span>Manage Orders</span>
-=======
                 <a href="{{route('restaurant.qrcode')}}" class="nav-link px-3 ">
                   <span class="me-2"><i class="bi bi-menu-down"></i></span>
                   <span>Generate QR Code</span>
->>>>>>> 80eb0764e65af8bbce8c032d4e2084593e4d5b9f
                 </a>
               </li>
 
