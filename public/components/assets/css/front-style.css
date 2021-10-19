@@ -103,7 +103,10 @@ a{
 .item-form-control{
     border-radius: 20px;
     width: 80%;
+<<<<<<< HEAD
     padding-left: 30px;
+=======
+>>>>>>> 3c1689e0a24a7857044ece31205587acefeb09db
 }
 .item-form-control:focus{
     box-shadow: none;
@@ -124,7 +127,10 @@ a{
     position: fixed;
     top: 30px;
     left: 30px;
+<<<<<<< HEAD
     transition: all 0.3s linear;
+=======
+>>>>>>> 3c1689e0a24a7857044ece31205587acefeb09db
 
 }
 .addToCart-btn button{
@@ -143,6 +149,7 @@ a{
     background-color: #fff;
     border: 1px solid #ffc048;
 }
+<<<<<<< HEAD
 /* .category-title{
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -229,6 +236,11 @@ a{
     background: #ff3f34;
     color: white;
 }
+=======
+.viewTitle{
+    cursor: pointer;
+}
+>>>>>>> 3c1689e0a24a7857044ece31205587acefeb09db
 @media screen and (max-width: 770px) {
     .address-section .column{
         border: none;

@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\SingleRestaurantController;
 use App\Http\Controllers\Restaurant\OrderController;
 use App\Http\Controllers\Restaurant\CategoryController;
 use App\Http\Controllers\Restaurant\MenuController;
+use App\Http\Controllers\Restaurant\QrController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -26,7 +27,9 @@ Route::get('/', function () {
 
 // ============ Route for admin ===============
 Route::get('/admin-login',function(){
+    if(!Auth::user()){
     return view('Admin.login');
+    }
 });
 Route::group(['middleware' => ['admin','auth'],'namespace' => 'admin'], function(){
 
@@ -126,6 +129,10 @@ Route::group(['middleware' => ['restaurant','auth'],'namespace' => 'restaurant']
     Route::get('/restaurant/dashboard',[RestaurantController::class,'index'])->name('restaurant.dashboard');
 
     Route::get('/restaurant/profile',[RestaurantController::class,'profile']);
+    /*--------------------------------------------------------------------
+    | Menu Management  Routes
+    -----------------------------------------------------------------------*/
+    Route::get('reataurant/qrcode',[QrController::class,'generateQrCode'])->name('restaurant.qrcode');
 
 });
 

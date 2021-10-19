@@ -31,17 +31,6 @@
 
 
         <form class="d-flex ms-auto my-3 my-lg-0">
-          <div class="input-group">
-            <input
-              class="form-control"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-primary" type="submit">
-              <i class="bi bi-search"></i>
-            </button>
-          </div>
         </form>
 
         <div class="profile-pic ms-4">
