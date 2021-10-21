@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <main class="mt-5 p-3">
+    <main class="mt-3 p-3">
         <div class="container-fluid">
             <div class="row my-1">
                 <div class="col-sm-9 col-md-8">
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-3 col-md-4">
+                <div class="col-sm-3 col-md-4 pay-section">
                     <div class="card card-stats card-round">
                         <div class="card-header d-flex justify-content-center align-items-center bg-dark ">
                             <h5 class="text-white text-uppercase" style="font-weight: 600;">
@@ -160,8 +160,8 @@
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
                                                 class="true" value="cash" checked="checked" > &nbsp; &nbsp;
-                                                <label for="payment_method">
-                                                    <i class="fas fa-money-bill-alt text-success"></i>&nbsp; Cash
+                                                <label for="payment_method" class="payment-method">
+                                                    <i class="bi bi-cash text-success"></i>&nbsp; Cash
                                                 </label>
                                         </td>
                                     </tr>
@@ -169,8 +169,8 @@
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
                                                 class="true" value="bank transfer"> &nbsp; &nbsp;
-                                                <label for="payment_method">
-                                                   <i class="fas fa-university text-danger"></i>&nbsp; Bank Transfer
+                                                <label for="payment_method" class="payment-method">
+                                                   <i class="bi bi-building text-danger"></i>&nbsp; Bank Transfer
                                                 </label>
                                         </td>
                                     </tr>
@@ -178,8 +178,8 @@
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
                                                 class="true" value="credit card" > &nbsp; &nbsp;
-                                                <label for="payment_method">
-                                                    <i class="fas fa-credit-card text-info"></i>&nbsp; Credit Card
+                                                <label for="payment_method" class="payment-method">
+                                                    <i class="bi bi-credit-card text-info"></i>&nbsp; Credit Card
                                                 </label>
                                         </td>
                                     </tr>
@@ -196,7 +196,7 @@
                                 @enderror
                                 <label class="font-weight-bold" for="change_balance">Returning Change</label>
                                 <input type="number" readonly name="change_balance" id="change_balance"
-                                class="form-control form-control-sm">
+                                class="form-control form-control-sm readonly">
                             </div>
                         </div>
                         <div class="card-footer">
@@ -205,10 +205,10 @@
                             @endphp
                             <div class="form-group">
                                 <label class="font-weight-bold" for="order_date">Date :</label>
-                                <input type="date" name="order_date" readonly class="form-control form-control-sm" value="{{ Carbon::now()->toDateString() }}">
+                                <input type="date" name="order_date" readonly class="form-control form-control-sm readonly" value="{{ Carbon::now()->toDateString() }}">
                             </div>
                             <div class="d-grid gap-2 my-2">
-                                <button class="btn btn-success" type="submit">Save</button>
+                                <button class="btn save-btn btn-sm" type="submit">Save</button>
                             </div>
                         </div>
                     </div>

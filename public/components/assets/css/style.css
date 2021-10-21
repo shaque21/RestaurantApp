@@ -446,6 +446,40 @@ a{
     color: rgba(0,0,0,0.72);
     border-radius: 2px;
 }
+.readonly:focus{
+    box-shadow: none;
+    border-color: #ffc048;
+}
+.payment-method{
+    font-size: 14px;
+}
+.save-btn{
+    padding: 5px 60px;
+    border: 2px solid #0be881;
+    background-color: #fff;
+    transition: all 0.3s linear;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.save-btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: all 0.3s linear;
+    background-color: #0be881;
+}
+.save-btn:hover::before{
+    transform: translateX(0);
+    z-index: -1;
+}
+.save-btn:hover{
+    color: #fff;
+}
 @media (min-width: 992px) {
   body {
     overflow: auto !important;
