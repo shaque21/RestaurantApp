@@ -436,6 +436,16 @@ a{
 .navbar-dark .profile-nav .nav-link:focus, .navbar-dark .profile-nav .nav-link:hover{
     border: none;
 }
+.order-table .select-option{
+    color: rgba(0,0,0,0.72);
+    border-radius: 0px;
+}
+.order-table .select-option:focus{
+    border: 1px solid #ffc048;
+    box-shadow: none;
+    color: rgba(0,0,0,0.72);
+    border-radius: 2px;
+}
 @media (min-width: 992px) {
   body {
     overflow: auto !important;

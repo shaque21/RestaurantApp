@@ -54,10 +54,11 @@
                                         <tr>
                                             <td>01</td>
                                             <td>
-                                                <select name="menu_id[]" class="fstdropdown-select form-control form-control-sm product_id">
+                                                <select name="menu_id[]" class="select-option form-select form-select-sm product_id"
+                                                 aria-label=".form-select-sm example">
                                                     <option value="">Select Items</option>
                                                     @foreach ($menus as $menu)
-                                                        <option data-price="{{ $menu->food_price }}" value="{{ $menu->id }}">
+                                                        <option data-price="{{ $menu->food_price }}"  value="{{ $menu->id }}">
                                                             {{ $menu->food_name }}
                                                         </option>
                                                     @endforeach
@@ -112,7 +113,7 @@
                     <div class="card card-stats card-round">
                         <div class="card-header d-flex justify-content-center align-items-center bg-dark ">
                             <h5 class="text-white text-uppercase" style="font-weight: 600;">
-                                Total Amount : <b class="total">0</b>.00 <small>( BDT )</small>
+                                Total Amount : <b class="total">0</b>.00 <span style="font-size: 12px;">( BDT )</span>
                             </h5>
                         </div>
                         <div class="card-body">
@@ -206,7 +207,9 @@
                                 <label class="font-weight-bold" for="order_date">Date :</label>
                                 <input type="date" name="order_date" readonly class="form-control form-control-sm" value="{{ Carbon::now()->toDateString() }}">
                             </div>
-                            <button class="btn btn-block btn-success" type="submit">Save</button>
+                            <div class="d-grid gap-2 my-2">
+                                <button class="btn btn-success" type="submit">Save</button>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -220,11 +223,14 @@
 @section('script')
     <script>
         $(document).ready(function(){
+
             $('#basic-datatables').DataTable({
 			});
             // add new row
             $('.add_more').on('click',function(){
                 var product = $('.product_id').html();
+                // var food_name = $('.product_id').data('food_name');
+                // console.log(food_name);
                 var number_of_row = ($('.add_new_product tr').length - 0) + 1;
                 if(number_of_row < 10){
                     number_of_row = '0' + number_of_row;
@@ -233,7 +239,7 @@
                     number_of_row = number_of_row;
                 }
                 var tr ='<tr><td class="no">' + number_of_row + '</td>' +
-                        '<td><select name="menu_id[]" class="fstdropdown-select form-control form-control-sm product_id">' +
+                        '<td><select name="menu_id[]" class="select-option form-select form-select-sm product_id">' +
                         product +
                         '</select></td>' +
                         '<td><input type="number" name="quantity[]" id="quantity" class="form-control form-control-sm quantity" ></td>' +
