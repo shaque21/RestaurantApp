@@ -28,11 +28,10 @@
                                 @endif
                             </div>
                         </div>
-                        <form action="{{ url('/admin/orders/submit') }}" method="POST">
-                            @csrf
+                        
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table  class="table table-sm table-bordered table-striped table-hover order-table">
+                                <table  class="table table-sm table-bordered table-striped table-hover order-table" id="ord_table">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th style="width: 5%">#</th>
@@ -54,7 +53,7 @@
                                         <tr>
                                             <td>01</td>
                                             <td>
-                                                <select name="menu_id[]" class="select-option form-select form-select-sm product_id"
+                                                <select name="menu_id[]" class="select-option form-select form-select-sm product_id" id="mnu_id" 
                                                  aria-label=".form-select-sm example">
                                                     <option value="">Select Items</option>
                                                     @foreach ($menus as $menu)
@@ -113,12 +112,12 @@
                     <div class="card card-stats card-round">
                         <div class="card-header d-flex justify-content-center align-items-center bg-dark ">
                             <h5 class="text-white text-uppercase" style="font-weight: 600;">
-                                Total Amount : <b class="total">0</b>.00 <span style="font-size: 12px;">( BDT )</span>
+                                Total Amount : <b class="total">0</b><span style="font-size: 12px;">( BDT )</span>
                             </h5>
                         </div>
                         <div class="card-body">
                             <div class="btn-group btn-sm">
-                                <a href="{{ url('/admin/cashier/receipt/download') }}" class="btn btn-secondary btn-sm text-uppercase font-weight-bold">
+                                <a href="" class="btn btn-secondary btn-sm text-uppercase font-weight-bold">
                                     <i class="bi bi-file-earmark"></i>&nbsp; PDF
                                 </a>
                                 <button type="button" class="btn btn-dark btn-sm text-uppercase font-weight-bold" data-toggle="modal" data-target="#historyModal"
@@ -159,7 +158,7 @@
                                     <tr>
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
-                                                class="true" value="cash" checked="checked" > &nbsp; &nbsp;
+                                                class="true" value="1" checked="checked" > &nbsp; &nbsp;
                                                 <label for="payment_method" class="payment-method">
                                                     <i class="bi bi-cash text-success"></i>&nbsp; Cash
                                                 </label>
@@ -168,7 +167,7 @@
                                     <tr>
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
-                                                class="true" value="bank transfer"> &nbsp; &nbsp;
+                                                class="true" value="2"> &nbsp; &nbsp;
                                                 <label for="payment_method" class="payment-method">
                                                    <i class="bi bi-building text-danger"></i>&nbsp; Bank Transfer
                                                 </label>
@@ -177,7 +176,7 @@
                                     <tr>
                                         <td>
                                             <input type="radio" name="payment_method" id="payment_method"
-                                                class="true" value="credit card" > &nbsp; &nbsp;
+                                                class="true" value="3" > &nbsp; &nbsp;
                                                 <label for="payment_method" class="payment-method">
                                                     <i class="bi bi-credit-card text-info"></i>&nbsp; Credit Card
                                                 </label>
@@ -207,12 +206,14 @@
                                 <label class="font-weight-bold" for="order_date">Date :</label>
                                 <input type="date" name="order_date" readonly class="form-control form-control-sm readonly" value="{{ Carbon::now()->toDateString() }}">
                             </div>
+                            
+
                             <div class="d-grid gap-2 my-2">
-                                <button class="btn save-btn btn-sm" type="submit">Save</button>
+                                <button class="btn save-btn btn-sm"  onclick="storeOrder()">Save</button>
                             </div>
                         </div>
                     </div>
-                </form>
+               
                 </div>
             </div>
 
@@ -239,7 +240,7 @@
                     number_of_row = number_of_row;
                 }
                 var tr ='<tr><td class="no">' + number_of_row + '</td>' +
-                        '<td><select name="menu_id[]" class="select-option form-select form-select-sm product_id">' +
+                        '<td><select name="menu_id[]" class="select-option form-select form-select-sm product_id" id="mnu_id">' +
                         product +
                         '</select></td>' +
                         '<td><input type="number" name="quantity[]" id="quantity" class="form-control form-control-sm quantity" ></td>' +
@@ -262,6 +263,7 @@
                     var amount = $(this).val() - 0;
                     total += amount;
                 });
+                total=parseFloat(total).toFixed(2);
                 $('.total').html(total);
             }
             // when select a product then show the product price in the price field
@@ -272,7 +274,7 @@
                 var qty = tr.find('.quantity').val() - 0;
                 var disc = tr.find('.discount').val() - 0;
                 var price = tr.find('.price').val() - 0;
-                var total_amount = (qty * price) - ((qty * price * disc) / 100);
+                var total_amount = parseFloat(qty * price) - ((qty * price * disc) / 100);
                 tr.find('.total_amount').val(total_amount);
                 TotalAmount();
             });
@@ -309,5 +311,21 @@
                 });
             });
         });
+    function storeOrder(){
+    var orders = [];
+        $('#ord_table tbody tr').each(function (a,b) {
+            var name=$('#mnu_id option:selected',b).val()
+            var qty = $('#quantity',b).val();
+            var disc = $('#discount',b).val();
+            orders.push({ mnu_id: name, qty: qty,disc:disc });
+           
+        });
+        var cus_name=$('#customer_name').val();
+        var cus_mob=$('#customer_mobile').val();
+        var cus_mob=$('#customer_mobile').val();
+        var pay_method=$('input[name="payment_method"]:checked').val();
+        alert(JSON.stringify("Hi"));
+
+}
     </script>
 @endsection

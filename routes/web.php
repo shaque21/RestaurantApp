@@ -124,6 +124,7 @@ Route::group(['middleware' => ['restaurant','auth'],'namespace' => 'restaurant']
     -----------------------------------------------------------------------*/
 
     Route::get('restaurant/orders/all',[OrderController::class, 'index'])->name('orders.all');
+    Route::post('order/save',[OrderController::class, 'store'])->name('order.store');
 
 
     Route::get('/restaurant/dashboard',[RestaurantController::class,'index'])->name('restaurant.dashboard');
