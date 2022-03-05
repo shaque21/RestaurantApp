@@ -4,8 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\Frontend\SingleRestaurantController;
+use App\Http\Controllers\Restaurant\OrderController;
 use App\Http\Controllers\Restaurant\CategoryController;
 use App\Http\Controllers\Restaurant\MenuController;
+use App\Http\Controllers\Restaurant\QrController;
 use App\Http\Controllers\RestaurantController;
 use Illuminate\Support\Facades\Auth;
 /*
@@ -25,7 +27,9 @@ Route::get('/', function () {
 
 // ============ Route for admin ===============
 Route::get('/admin-login',function(){
+    if(!Auth::user()){
     return view('Admin.login');
+    }
 });
 Route::group(['middleware' => ['admin','auth'],'namespace' => 'admin'], function(){
 
@@ -115,10 +119,21 @@ Route::group(['middleware' => ['restaurant','auth'],'namespace' => 'restaurant']
     Route::post('restaurant/menu/delete',[MenuController::class, 'destroy'])->name('menu.delete');
     Route::get('restaurant/menu/activeStatus',[MenuController::class,'activeStatus'])->name('menu.active');
 
+    /*--------------------------------------------------------------------
+    | Orders Management  Routes
+    -----------------------------------------------------------------------*/
+
+    Route::get('restaurant/orders/all',[OrderController::class, 'index'])->name('orders.all');
+    Route::post('order/save',[OrderController::class, 'store'])->name('order.store');
+
 
     Route::get('/restaurant/dashboard',[RestaurantController::class,'index'])->name('restaurant.dashboard');
 
     Route::get('/restaurant/profile',[RestaurantController::class,'profile']);
+    /*--------------------------------------------------------------------
+    | Menu Management  Routes
+    -----------------------------------------------------------------------*/
+    Route::get('reataurant/qrcode',[QrController::class,'generateQrCode'])->name('restaurant.qrcode');
 
 });
 

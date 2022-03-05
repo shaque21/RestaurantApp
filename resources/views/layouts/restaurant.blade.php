@@ -6,13 +6,15 @@
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Restaurent Owner Dashboard</title>
-
     @include('layouts.admin.css')
-
   </head>
   <body>
 
-
+    @php
+        $user_id = Auth::user()->id;
+        $restaurant = App\Models\Restaurant::where('rstown_id', $user_id)->firstOrFail();
+        // dd($restaurant);
+    @endphp
     <!-- top navigation bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container-fluid">
@@ -28,9 +30,9 @@
             </span>
           </button>
           <a
-            class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold"
+            class="navbar-brand restaurant-brand me-auto ms-lg-0 ms-5 text-uppercase fw-bold"
             href="#"
-            >Samsul Haque</a
+            >{{ $restaurant->restaurant_name }}</a
           >
           <button
             class="navbar-toggler"
@@ -47,7 +49,7 @@
 
 
             <form class="d-flex ms-auto my-3 my-lg-0">
-              <div class="input-group">
+              <!-- <div class="input-group">
                 <input
                   class="form-control"
                   type="search"
@@ -57,22 +59,25 @@
                 <button class="btn btn-primary" type="submit">
                   <i class="bi bi-search"></i>
                 </button>
-              </div>
+              </div> -->
             </form>
+            <div class="view_restaurant ms-4">
+
+            </div>
 
             <div class="profile-pic ms-4">
                 @if (Auth::user()->photo != '')
-                <a href="{{ url('/admin/profile') }}">
+                <a href="{{ url('/restaurant/profile') }}">
                     <img src="{{ asset('uploads/admin/'.Auth::user()->photo) }}" alt="">
                 </a>
                 {{-- <img  src="{{ asset('uploads/admin/'.$user->photo) }}" alt="Photo" width="150px"> --}}
                 @else
-                <a href="{{ url('/admin/profile') }}">
+                <a href="{{ url('/restaurant/profile') }}">
                     <img src="{{ asset('components/assets/images/avarter.jpg') }}" alt="Photo">
                 </a>
                 @endif
             </div>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav profile-nav">
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle ms-2 name-text"
@@ -81,11 +86,15 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                <span class="badge rounded-pill bg-primary text-white">{{ Auth::user()->name }}</span>
+                <span class="badge rounded-pill bg-warning text-white">{{ Auth::user()->name }}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
                   <li><a class="dropdown-item" href="{{ url('admin/profile') }}"><i class="bi bi-person fw-bolder text-primary me-2"></i> Profile</a></li>
-                  <li><a class="dropdown-item" href="{{ url('admin/profile/edit') }}"><i class="bi bi-pencil-square fw-bolder text-primary me-2"></i> Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ url('admin/profile/edit') }}"><i class="bi bi-pencil-square fw-bolder text-success me-2"></i> Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="{{ url('restaurant/'.$restaurant->rstown_slug) }}">
+                    <i class="bi bi-building fw-bolder text-warning me-2"></i>
+                    View Restaurent
+                </a></li>
                   <li class="my-2"><hr class="dropdown-divider bg-dark" /></li>
                   <li>
                       <a class="dropdown-item text-danger" href="{{ route('logout') }}"
@@ -203,6 +212,15 @@
                 <a href="{{ route('menu.all') }}" class="nav-link px-3 {{ (request()->segment(2) == 'menu') ? 'active' : '' }}">
                   <span class="me-2"><i class="bi bi-menu-down"></i></span>
                   <span>Manage Menu</span>
+                </a>
+              </li>
+              <li>
+                <a href="{{ route('orders.all') }}" class="nav-link px-3 {{ (request()->segment(2) == 'orders') ? 'active' : '' }}">
+                  <span class="me-2"><i class="bi bi-bag-check text-bold"></i></span>
+                  <span>Manage Orders</span>
+                <a href="{{route('restaurant.qrcode')}}" class="nav-link px-3 ">
+                  <span class="me-2"><i class="bi bi-menu-down"></i></span>
+                  <span>Generate QR Code</span>
                 </a>
               </li>
 
