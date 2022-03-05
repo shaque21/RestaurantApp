@@ -16,7 +16,6 @@ class Restaurant extends Model
         'rst_status',
         'rstown_id',
     ];
-
     public function users(){
         return $this->belongsTo('App\Models\User','rstown_id','id');
     }

@@ -18,7 +18,7 @@ class CreateRestaurantsTable extends Migration
             $table->integer('rstown_id');
             $table->string('phone',15);
             $table->string('photo')->nullable();
-            $table->integer('restaurant_id')->unique();
+            $table->string('restaurant_id')->unique();
             $table->string('restaurant_name');
             $table->string('restaurant_address');
             $table->string('rstown_slug',50)->unique()->nullable();

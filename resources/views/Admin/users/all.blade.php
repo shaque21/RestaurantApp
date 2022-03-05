@@ -41,6 +41,7 @@
                                   </tr>
                                 </thead>
                                 <tbody>
+                                  @if($users)
                                   @foreach($users as $key => $data)
                                   <tr>
                                     <td>
@@ -80,6 +81,7 @@
                                     </td>
                                   </tr>
                                   @endforeach
+                                  @endif
                                 </tbody>
                             </table>
                         </div>

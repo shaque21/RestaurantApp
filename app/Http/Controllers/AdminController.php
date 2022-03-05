@@ -26,7 +26,7 @@ class AdminController extends Controller
 
     public function all_user(){
 
-        $users = User::where('status',1)->orderBy('id','DESC')->get();
+        $users = User::where('status',1)->where('role_id',)->orderBy('id','DESC')->get();
 
         // $restaurants = DB::table('restaurants')
         //     ->join('users','restaurants.rstown_id','users.id')
